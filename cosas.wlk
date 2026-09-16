@@ -4,10 +4,10 @@ object knightRider {
 }
 
 object bumblebee {
-    var transformar= unAuto
+    var estado = unAuto
     method peso() = 800
     method peligrosidad() = transformar.peligrosidad()
-    method cambiarTransformacion(nuevaTransformacion) {
+    method transformar(nuevaTransformacion) {
         transformar = nuevaTransformacion
     }
 }
@@ -22,11 +22,16 @@ object paqueteDeLadrillos{
     var cantLadrillos = 0
     method peso() = 2 * cantLadrillos
     method peligrosidad() = 2
+    method transformar() = agregarLadrillos(12)
+    method agregarLadrillos(nuevosLadrillos){
+        cantLadrillos = nuevosLadrillos + cantLadrillos
+    }
 }
 
 object arenaAGranel{
     var peso = 0
     method peligrosidad() = 1
+    method transformar() = peso - 10
 }
 
 object bateriaAntiaerea{
@@ -34,6 +39,10 @@ object bateriaAntiaerea{
     
     method cambiarTransformacion(nuevaTransformacion){
         estado = nuevaTransformacion
+    }
+
+    method transformar(){
+        estado.cambiarTransformacion(cargada)
     }
 }
 object cargada{
@@ -51,12 +60,21 @@ object contenedorPortuario{
     method peso() = 100 + cosas.sum({cosa => cosa.peso()})
     method peligrosidad() = cosas.max({cosa => cosa.peligrosidad()})
     method agregarCosa(nuevaCosa) = cosas.add(nuevaCosa)
+    method transformar() {
+    cosas.forEach(cosa => cosa.transformar)
+    } 
+        
 
 }
 
 object residuosRadiactivos{
-    var peso = 0
+    var pesoResiduo = 0
     method peligrosidad() = 200
+    method peso() = pesoResiduo
+    method transformar{
+        pesoResiduo = pesoResiduo + 15
+    }
+
 }
 
 object embalajeDeSeguridad{
