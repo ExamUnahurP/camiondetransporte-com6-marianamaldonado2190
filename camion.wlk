@@ -8,5 +8,6 @@ object camion {
         cosas.remove(unaCosa)
     }
 
-    method pesoPar() 
+    method pesoPar() = cosas.all({cosa => cosa.peso().even()})
+
 }
