@@ -1,3 +1,7 @@
 object camion {
-    method 
+    const patente = AD123
+    const carga = []
+    method cambiaAcoplado (nuevoA){
+
+    }
 }
