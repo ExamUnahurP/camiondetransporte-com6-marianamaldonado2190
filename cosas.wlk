@@ -36,6 +36,9 @@ object arenaAGranel{
 object bateriaAntiaerea{
     var estado = descargada
     
+    method cambiarTransformacion(nuevaTransformacion){
+        estado = nuevaTransformacion
+    }
 }
 object cargada{
     method peso() = 300
@@ -47,7 +50,10 @@ object descargada{
 }
 
 object contenedorPortuario{
+    var cosas = []
+    method peso() = 100+ cosas.forEach({ peso => peso = cosa.peso() + peso})
 
+    method peligrosidad() = cosas.max({peligrosi})
 }
 
 object residuosRadiactivos{
