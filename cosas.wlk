@@ -51,15 +51,21 @@ object descargada{
 
 object contenedorPortuario{
     var cosas = []
-    method peso() = 100+ cosas.forEach({ peso => peso = cosa.peso() + peso})
+    
+    method peso() = 100 + cosas.forEach({ cosa => peso = cosa.peso() + peso})
+    method peligrosidad() = cosas.max({cosa => cosa.peligrosidad()})
+    method agregarCosa(nuevaCosa) = cosas.add(nuevaCosa)
 
-    method peligrosidad() = cosas.max({peligrosi})
 }
 
 object residuosRadiactivos{
-
+    var peso = 0
+    method peligrosidad() = 200
 }
 
 object embalajeDeSeguridad{
-
+    var cosaEmbalada = cosa
+    method embalarCosa(nuevaCosa) = cosa = nuevaCosa
+    method peso() = cosa.peso()
+    method peligrosidad() =  
 }
