@@ -10,4 +10,6 @@ object camion {
 
     method pesoPar() = cosas.all({cosa => cosa.peso().even()})
 
+    method averiguarPeso() = cosas.any({cosa => cosa})
+
 }
