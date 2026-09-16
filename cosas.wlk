@@ -1,7 +1,3 @@
-object cosas {
-    
-}
-
 object knightRider {
     method peso() = 500
     method peligrosidad() = 10
@@ -51,8 +47,8 @@ object descargada{
 
 object contenedorPortuario{
     var cosas = []
-    
-    method peso() = 100 + cosas.forEach({ cosa => peso = cosa.peso() + peso})
+
+    method peso() = 100 + cosas.sum({cosa => cosa.peso()})
     method peligrosidad() = cosas.max({cosa => cosa.peligrosidad()})
     method agregarCosa(nuevaCosa) = cosas.add(nuevaCosa)
 
@@ -64,8 +60,10 @@ object residuosRadiactivos{
 }
 
 object embalajeDeSeguridad{
-    var cosaEmbalada = cosa
-    method embalarCosa(nuevaCosa) = cosa = nuevaCosa
-    method peso() = cosa.peso()
-    method peligrosidad() =  
+    var cosaEmbalada = residuosRadiactivos
+    method embalarCosa(nuevaCosa){
+        cosaEmbalada = nuevaCosa 
+    }
+    method peso() = cosaEmbalada.peso()
+    method peligrosidad() =  cosaEmbalada.peligrosidad() / 2
 }
