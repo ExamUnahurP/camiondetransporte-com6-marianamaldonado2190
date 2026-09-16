@@ -10,10 +10,16 @@ object knightRider {
 object bumblebee {
     var transformar= unAuto
     method peso() = 800
-    method peligrosidad() = if (esAuto) 15 else 30
+    method peligrosidad() = transformar.peligrosidad()
     method cambiarTransformacion(nuevaTransformacion) {
-        t
+        transformar = nuevaTransformacion
     }
+}
+object unAuto{
+    method peligrosidad() = 15
+}
+object unRobot{
+    method peligrosidad() = 30
 }
 
 object paqueteDeLadrillos{
@@ -28,7 +34,16 @@ object arenaAGranel{
 }
 
 object bateriaAntiaerea{
-    var 
+    var estado = descargada
+    
+}
+object cargada{
+    method peso() = 300
+    method peligrosidad() = 100
+}
+object descargada{
+    method peso() = 200
+    method peligrosidad() = 0
 }
 
 object contenedorPortuario{
