@@ -12,6 +12,6 @@ object camion {
 
     method averiguarPeso(unPeso) = cosas.any({cosa => cosa.peso() == unPeso })
 
-    method peligrosidadDeterminada(nivel) = cosas.findOrDefault({cosa => cosa.peligrosidad() == nivel})
+    method peligrosidadDeterminada(nivel) = cosas.findOrDefault({cosa => cosa.peligrosidad()},nivel)
 
 }
